@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+  <record model="ir.ui.view" id="real_estate_form_view">
+    <field name="name">real.estate.form (in realestate_estate_image)
+        </field>
+    <field name="model">real.estate</field>
+    <field name="inherit_id" ref="realestate_estate.real_estate_form_view" />
+    <field name="arch" type="xml">
+      <field name="image_256" position="attributes">
+        <field name="invisible">1</field>
+        <field name="image_medium_url" widget="image_url" class="oe_avatar" />
+      </field>
+      <xpath expr="//notebook/page[@name='page_contacts']" position="after">
+        <page name="image" string="Image">
+          <field
+            name="image_ids"
+            mode="kanban"
+            widget="image_handle"
+            options="{'image_field': 'image_id', 'handle_field': 'sequence'}"
+          />
+        </page>
+      </xpath>
+    </field>
+  </record>
+</odoo>
