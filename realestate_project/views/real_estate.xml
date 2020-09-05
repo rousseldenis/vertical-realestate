@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+  <record id="open_estate_view_project_all" model="ir.actions.act_window">
+    <field name="name">Projects</field>
+    <field name="res_model">project.project</field>
+    <field name="domain">[('real_estate_id', '=', active_id)]</field>
+    <field name="view_mode">kanban,form</field>
+    <field name="target">main</field>
+    <field name="context">{'default_real_estate_id': active_id}</field>
+  </record>
+  <record model="ir.ui.view" id="real_estate_form_view">
+    <field name="name">real.estate.form (in realestate_project)</field>
+    <field name="model">real.estate</field>
+    <field name="inherit_id" ref="realestate_estate.real_estate_form_view" />
+    <field name="arch" type="xml">
+      <div name="buttons" position="inside">
+        <button
+          class="oe_stat_button"
+          name="%(realestate_project.open_estate_view_project_all)d"
+          string="Projects"
+          type="action"
+          groups="project.group_project_user"
+          icon="fa-bars"
+        />
+      </div>
+    </field>
+  </record>
+</odoo>
