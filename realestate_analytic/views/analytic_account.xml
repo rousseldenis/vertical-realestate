@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2020 ACSONE SA/NV
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+<odoo>
+  <record model="ir.actions.act_window" id="analytic_line_action">
+    <field name="name">Analytic Items</field>
+    <field name="res_model">account.analytic.line</field>
+    <field name="view_mode">tree,kanban,form,graph,pivot</field>
+    <field name="view_id" ref="analytic.view_account_analytic_line_tree" />
+    <field name="search_view_id" ref="analytic.view_account_analytic_line_filter" />
+  </record>
+  <record model="ir.actions.act_window" id="analytic_account_action">
+    <field name="name">Analytic Accounts</field>
+    <field name="res_model">account.analytic.account</field>
+    <field name="view_mode">tree,kanban,form,graph,pivot</field>
+  </record>
+  <record model="ir.actions.act_window" id="analytic_account_tags_action">
+    <field name="name">Analytic Tags</field>
+    <field name="res_model">account.analytic.tag</field>
+    <field name="view_mode">tree,kanban,form,graph,pivot</field>
+  </record>
+  <record model="ir.actions.act_window" id="analytic_account_groups_action">
+    <field name="name">Analytic Groups</field>
+    <field name="res_model">account.analytic.group</field>
+    <field name="view_mode">tree,kanban,form,graph,pivot</field>
+  </record>
+  <record model="ir.ui.menu" id="real_estate_configuration_analytic_menu">
+    <field name="name">Analytic</field>
+    <field name="parent_id" ref="realestate.real_estate_configuration_menu" />
+    <field name="sequence" eval="100" />
+  </record>
+  <record model="ir.ui.menu" id="real_estate_configuration_analytic_items_menu">
+    <field name="name">Analytic Items</field>
+    <field name="parent_id" ref="real_estate_configuration_analytic_menu" />
+    <field name="action" ref="analytic_line_action" />
+    <field name="sequence" eval="10" />
+  </record>
+  <record model="ir.ui.menu" id="real_estate_configuration_analytic_accounts_menu">
+    <field name="name">Analytic Accounts</field>
+    <field name="parent_id" ref="real_estate_configuration_analytic_menu" />
+    <field name="action" ref="analytic_account_action" />
+    <field name="sequence" eval="20" />
+  </record>
+  <record model="ir.ui.menu" id="real_estate_configuration_analytic_tags_menu">
+    <field name="name">Analytic Tags</field>
+    <field name="parent_id" ref="real_estate_configuration_analytic_menu" />
+    <field name="action" ref="analytic_account_tags_action" />
+    <field name="sequence" eval="30" />
+  </record>
+  <record model="ir.ui.menu" id="real_estate_configuration_analytic_groups_menu">
+    <field name="name">Analytic Groups</field>
+    <field name="parent_id" ref="real_estate_configuration_analytic_menu" />
+    <field name="action" ref="analytic_account_groups_action" />
+    <field name="sequence" eval="30" />
+  </record>
+</odoo>
